@@ -1,0 +1,78 @@
+\documentclass[10pt,pdf,utf8,russian]{beamer}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,main=russian]{babel}
+
+\usetheme[progressbar=frametitle,numbering=fraction]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\lstnewenvironment{code}[1][]{%
+    \lstset{autogobble=true,#1}%
+}{}
+\lstset{
+  basicstyle=\ttfamily,
+  breakatwhitespace=true,
+  breaklines=true,
+  postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}}
+}
+
+\usepackage[labelformat=empty]{caption}
+\usepackage[loop,autoresume,nomouse,autoplay]{animate}
+\usepackage{graphicx}
+\graphicspath{{imgs/}}
+
+\usepackage{todonotes}
+\usepackage{ifthen}%
+\providecommand\enabletodos{false}%
+\ifthenelse{ \equal{\enabletodos}{true} }{%
+  \presetkeys{todonotes}{inline}{}%
+}{%
+  \presetkeys{todonotes}{disable}{}%
+}%
+
+
+\usepackage{array}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{makecell}
+
+\usepackage{subcaption}
+
+%%% Bibliography
+\usepackage[bibstyle=numeric,citestyle=numeric-comp,sorting=none,backend=biber,backref=true,doi=false,isbn=false,url=false]{biblatex}
+
+\defbeamertemplate*{subsection in toc}{sub on 1 line}
+{
+  \ifnum\inserttocsubsectionnumber=1
+    \quad\quad\inserttocsubsection 
+  \else
+    \quad\quad\inserttocsubsection 
+  \fi
+}
+
+\title{Title}
+\subtitle{Subtitle}
+\date{\today}
+\author{Name}
+
+\begin{document}
+\newcommand\imagewidth{\textwidth-2\baselineskip}
+\newcommand\imageheight{\textheight-2\baselineskip}
+
+\maketitle
+
+\begin{frame}{FrameTitle}
+  Text
+  \todo{TODO}
+\end{frame}
+
+\begin{frame}[standout]
+  \vfill
+  The End
+  \vfill
+\end{frame}
+
+\end{document}
